@@ -10,23 +10,18 @@ def seqToString[T](seq: Seq[T]): String = seq match {
 }
 
 for (seq <- Seq(nonEmptySeq, nonEmptyMap.toSeq)) {
-  //  println("head : " + seq.head + " - tail : %s".format(seq.tail))
+//  println("head : " + seq.head + " - tail : %s".format(seq.tail))
 
   println(seqToString(seq))
 }
 
 
 def reverseSeqToString[T](l: Seq[T]): String = l match {
-  case prefix :+ end => s"(${reverseSeqToString(prefix)} :+ $end)"
-  case Nil => "(Nil)"
+//  case prefix :+ end => s"(${reverseSeqToString(prefix)} :+ $end)"
+  case prefix :+ end => reverseSeqToString(prefix) + s" :+ $end"
+  case Nil => "Nil"
 }
 
 for (seq <- Seq(nonEmptyList, nonEmptyVector, nonEmptyMap.toSeq)) {
   println(reverseSeqToString(seq))
 }
-
-
-
-
-
-
